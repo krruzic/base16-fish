@@ -27,6 +27,9 @@ function base16-atelier-sulphurpool -d "Atelier Sulphurpool"
   set color21 '#dfe2f1' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
+  function hex_to_rgb;
+    echo $argv[1] | sed -rE 's/\'\#([0-9A-H]{2})([0-9A-H]{2})([0-9A-H]{2})\'/\1\/\2\/\3/gI'
+  end;
 
   function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
   function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
