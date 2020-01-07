@@ -3,28 +3,28 @@
 # PaperColor Dark scheme by Jon Leopard (http://github.com/jonleopard) based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
 
 function base16-papercolor-dark -d "PaperColor Dark"
-  set color00 1c/1c/1c # Base 00 - Black
-  set color01 58/58/58 # Base 08 - Red
-  set color02 af/87/d7 # Base 0B - Green
-  set color03 af/d7/00 # Base 0A - Yellow
-  set color04 ff/5f/af # Base 0D - Blue
-  set color05 00/af/af # Base 0E - Magenta
-  set color06 ff/af/00 # Base 0C - Cyan
-  set color07 80/80/80 # Base 05 - White
-  set color08 d7/af/5f # Base 03 - Bright Black
+  set color00 '#1c1c1c' # Base 00 - Black
+  set color01 '#585858' # Base 08 - Red
+  set color02 '#af87d7' # Base 0B - Green
+  set color03 '#afd700' # Base 0A - Yellow
+  set color04 '#ff5faf' # Base 0D - Blue
+  set color05 '#00afaf' # Base 0E - Magenta
+  set color06 '#ffaf00' # Base 0C - Cyan
+  set color07 '#808080' # Base 05 - White
+  set color08 '#d7af5f' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 d0/d0/d0 # Base 07 - Bright White
-  set color16 5f/af/5f # Base 09
-  set color17 5f/87/87 # Base 0F
-  set color18 af/00/5f # Base 01
-  set color19 5f/af/00 # Base 02
-  set color20 5f/af/d7 # Base 04
-  set color21 d7/87/5f # Base 06
+  set color15 '#d0d0d0' # Base 07 - Bright White
+  set color16 '#5faf5f' # Base 09
+  set color17 '#5f8787' # Base 0F
+  set color18 '#af005f' # Base 01
+  set color19 '#5faf00' # Base 02
+  set color20 '#5fafd7' # Base 04
+  set color21 '#d7875f' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 

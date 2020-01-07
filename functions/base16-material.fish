@@ -3,28 +3,28 @@
 # Material scheme by Nate Peterson
 
 function base16-material -d "Material"
-  set color00 26/32/38 # Base 00 - Black
-  set color01 F0/71/78 # Base 08 - Red
-  set color02 C3/E8/8D # Base 0B - Green
-  set color03 FF/CB/6B # Base 0A - Yellow
-  set color04 82/AA/FF # Base 0D - Blue
-  set color05 C7/92/EA # Base 0E - Magenta
-  set color06 89/DD/FF # Base 0C - Cyan
-  set color07 EE/FF/FF # Base 05 - White
-  set color08 54/6E/7A # Base 03 - Bright Black
+  set color00 '#263238' # Base 00 - Black
+  set color01 '#F07178' # Base 08 - Red
+  set color02 '#C3E88D' # Base 0B - Green
+  set color03 '#FFCB6B' # Base 0A - Yellow
+  set color04 '#82AAFF' # Base 0D - Blue
+  set color05 '#C792EA' # Base 0E - Magenta
+  set color06 '#89DDFF' # Base 0C - Cyan
+  set color07 '#EEFFFF' # Base 05 - White
+  set color08 '#546E7A' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 FF/FF/FF # Base 07 - Bright White
-  set color16 F7/8C/6C # Base 09
-  set color17 FF/53/70 # Base 0F
-  set color18 2E/3C/43 # Base 01
-  set color19 31/45/49 # Base 02
-  set color20 B2/CC/D6 # Base 04
-  set color21 EE/FF/FF # Base 06
+  set color15 '#FFFFFF' # Base 07 - Bright White
+  set color16 '#F78C6C' # Base 09
+  set color17 '#FF5370' # Base 0F
+  set color18 '#2E3C43' # Base 01
+  set color19 '#314549' # Base 02
+  set color20 '#B2CCD6' # Base 04
+  set color21 '#EEFFFF' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 

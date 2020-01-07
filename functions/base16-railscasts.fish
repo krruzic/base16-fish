@@ -3,28 +3,28 @@
 # Railscasts scheme by Ryan Bates (http://railscasts.com)
 
 function base16-railscasts -d "Railscasts"
-  set color00 2b/2b/2b # Base 00 - Black
-  set color01 da/49/39 # Base 08 - Red
-  set color02 a5/c2/61 # Base 0B - Green
-  set color03 ff/c6/6d # Base 0A - Yellow
-  set color04 6d/9c/be # Base 0D - Blue
-  set color05 b6/b3/eb # Base 0E - Magenta
-  set color06 51/9f/50 # Base 0C - Cyan
-  set color07 e6/e1/dc # Base 05 - White
-  set color08 5a/64/7e # Base 03 - Bright Black
+  set color00 '#2b2b2b' # Base 00 - Black
+  set color01 '#da4939' # Base 08 - Red
+  set color02 '#a5c261' # Base 0B - Green
+  set color03 '#ffc66d' # Base 0A - Yellow
+  set color04 '#6d9cbe' # Base 0D - Blue
+  set color05 '#b6b3eb' # Base 0E - Magenta
+  set color06 '#519f50' # Base 0C - Cyan
+  set color07 '#e6e1dc' # Base 05 - White
+  set color08 '#5a647e' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 f9/f7/f3 # Base 07 - Bright White
-  set color16 cc/78/33 # Base 09
-  set color17 bc/94/58 # Base 0F
-  set color18 27/29/35 # Base 01
-  set color19 3a/40/55 # Base 02
-  set color20 d4/cf/c9 # Base 04
-  set color21 f4/f1/ed # Base 06
+  set color15 '#f9f7f3' # Base 07 - Bright White
+  set color16 '#cc7833' # Base 09
+  set color17 '#bc9458' # Base 0F
+  set color18 '#272935' # Base 01
+  set color19 '#3a4055' # Base 02
+  set color20 '#d4cfc9' # Base 04
+  set color21 '#f4f1ed' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 

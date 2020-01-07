@@ -3,28 +3,28 @@
 # Paraiso scheme by Jan T. Sott
 
 function base16-paraiso -d "Paraiso"
-  set color00 2f/1e/2e # Base 00 - Black
-  set color01 ef/61/55 # Base 08 - Red
-  set color02 48/b6/85 # Base 0B - Green
-  set color03 fe/c4/18 # Base 0A - Yellow
-  set color04 06/b6/ef # Base 0D - Blue
-  set color05 81/5b/a4 # Base 0E - Magenta
-  set color06 5b/c4/bf # Base 0C - Cyan
-  set color07 a3/9e/9b # Base 05 - White
-  set color08 77/6e/71 # Base 03 - Bright Black
+  set color00 '#2f1e2e' # Base 00 - Black
+  set color01 '#ef6155' # Base 08 - Red
+  set color02 '#48b685' # Base 0B - Green
+  set color03 '#fec418' # Base 0A - Yellow
+  set color04 '#06b6ef' # Base 0D - Blue
+  set color05 '#815ba4' # Base 0E - Magenta
+  set color06 '#5bc4bf' # Base 0C - Cyan
+  set color07 '#a39e9b' # Base 05 - White
+  set color08 '#776e71' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 e7/e9/db # Base 07 - Bright White
-  set color16 f9/9b/15 # Base 09
-  set color17 e9/6b/a8 # Base 0F
-  set color18 41/32/3f # Base 01
-  set color19 4f/42/4c # Base 02
-  set color20 8d/86/87 # Base 04
-  set color21 b9/b6/b0 # Base 06
+  set color15 '#e7e9db' # Base 07 - Bright White
+  set color16 '#f99b15' # Base 09
+  set color17 '#e96ba8' # Base 0F
+  set color18 '#41323f' # Base 01
+  set color19 '#4f424c' # Base 02
+  set color20 '#8d8687' # Base 04
+  set color21 '#b9b6b0' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 

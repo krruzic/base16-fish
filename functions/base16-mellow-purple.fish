@@ -3,28 +3,28 @@
 # Mellow Purple scheme by gidsi
 
 function base16-mellow-purple -d "Mellow Purple"
-  set color00 1e/05/28 # Base 00 - Black
-  set color01 00/d9/e9 # Base 08 - Red
-  set color02 05/cb/0d # Base 0B - Green
-  set color03 95/5a/e7 # Base 0A - Yellow
-  set color04 55/00/68 # Base 0D - Blue
-  set color05 89/91/bb # Base 0E - Magenta
-  set color06 b9/00/b1 # Base 0C - Cyan
-  set color07 ff/ee/ff # Base 05 - White
-  set color08 32/0f/55 # Base 03 - Bright Black
+  set color00 '#1e0528' # Base 00 - Black
+  set color01 '#00d9e9' # Base 08 - Red
+  set color02 '#05cb0d' # Base 0B - Green
+  set color03 '#955ae7' # Base 0A - Yellow
+  set color04 '#550068' # Base 0D - Blue
+  set color05 '#8991bb' # Base 0E - Magenta
+  set color06 '#b900b1' # Base 0C - Cyan
+  set color07 '#ffeeff' # Base 05 - White
+  set color08 '#320f55' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 f8/c0/ff # Base 07 - Bright White
-  set color16 aa/00/a3 # Base 09
-  set color17 4d/6f/ff # Base 0F
-  set color18 1A/09/2D # Base 01
-  set color19 33/13/54 # Base 02
-  set color20 87/35/82 # Base 04
-  set color21 ff/ee/ff # Base 06
+  set color15 '#f8c0ff' # Base 07 - Bright White
+  set color16 '#aa00a3' # Base 09
+  set color17 '#4d6fff' # Base 0F
+  set color18 '#1A092D' # Base 01
+  set color19 '#331354' # Base 02
+  set color20 '#873582' # Base 04
+  set color21 '#ffeeff' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 

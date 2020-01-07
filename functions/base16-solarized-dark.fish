@@ -3,28 +3,28 @@
 # Solarized Dark scheme by Ethan Schoonover (modified by aramisgithub)
 
 function base16-solarized-dark -d "Solarized Dark"
-  set color00 00/2b/36 # Base 00 - Black
-  set color01 dc/32/2f # Base 08 - Red
-  set color02 85/99/00 # Base 0B - Green
-  set color03 b5/89/00 # Base 0A - Yellow
-  set color04 26/8b/d2 # Base 0D - Blue
-  set color05 6c/71/c4 # Base 0E - Magenta
-  set color06 2a/a1/98 # Base 0C - Cyan
-  set color07 93/a1/a1 # Base 05 - White
-  set color08 65/7b/83 # Base 03 - Bright Black
+  set color00 '#002b36' # Base 00 - Black
+  set color01 '#dc322f' # Base 08 - Red
+  set color02 '#859900' # Base 0B - Green
+  set color03 '#b58900' # Base 0A - Yellow
+  set color04 '#268bd2' # Base 0D - Blue
+  set color05 '#6c71c4' # Base 0E - Magenta
+  set color06 '#2aa198' # Base 0C - Cyan
+  set color07 '#93a1a1' # Base 05 - White
+  set color08 '#657b83' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 fd/f6/e3 # Base 07 - Bright White
-  set color16 cb/4b/16 # Base 09
-  set color17 d3/36/82 # Base 0F
-  set color18 07/36/42 # Base 01
-  set color19 58/6e/75 # Base 02
-  set color20 83/94/96 # Base 04
-  set color21 ee/e8/d5 # Base 06
+  set color15 '#fdf6e3' # Base 07 - Bright White
+  set color16 '#cb4b16' # Base 09
+  set color17 '#d33682' # Base 0F
+  set color18 '#073642' # Base 01
+  set color19 '#586e75' # Base 02
+  set color20 '#839496' # Base 04
+  set color21 '#eee8d5' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 

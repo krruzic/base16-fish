@@ -3,28 +3,28 @@
 # Atelier Forest Light scheme by Bram de Haan (http://atelierbramdehaan.nl)
 
 function base16-atelier-forest-light -d "Atelier Forest Light"
-  set color00 f1/ef/ee # Base 00 - Black
-  set color01 f2/2c/40 # Base 08 - Red
-  set color02 7b/97/26 # Base 0B - Green
-  set color03 c3/84/18 # Base 0A - Yellow
-  set color04 40/7e/e7 # Base 0D - Blue
-  set color05 66/66/ea # Base 0E - Magenta
-  set color06 3d/97/b8 # Base 0C - Cyan
-  set color07 68/61/5e # Base 05 - White
-  set color08 9c/94/91 # Base 03 - Bright Black
+  set color00 '#f1efee' # Base 00 - Black
+  set color01 '#f22c40' # Base 08 - Red
+  set color02 '#7b9726' # Base 0B - Green
+  set color03 '#c38418' # Base 0A - Yellow
+  set color04 '#407ee7' # Base 0D - Blue
+  set color05 '#6666ea' # Base 0E - Magenta
+  set color06 '#3d97b8' # Base 0C - Cyan
+  set color07 '#68615e' # Base 05 - White
+  set color08 '#9c9491' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 1b/19/18 # Base 07 - Bright White
-  set color16 df/53/20 # Base 09
-  set color17 c3/3f/f3 # Base 0F
-  set color18 e6/e2/e0 # Base 01
-  set color19 a8/a1/9f # Base 02
-  set color20 76/6e/6b # Base 04
-  set color21 2c/24/21 # Base 06
+  set color15 '#1b1918' # Base 07 - Bright White
+  set color16 '#df5320' # Base 09
+  set color17 '#c33ff3' # Base 0F
+  set color18 '#e6e2e0' # Base 01
+  set color19 '#a8a19f' # Base 02
+  set color20 '#766e6b' # Base 04
+  set color21 '#2c2421' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 

@@ -3,28 +3,28 @@
 # Horizon Light scheme by Michaël Ball (http://github.com/michael-ball/)
 
 function base16-horizon-light -d "Horizon Light"
-  set color00 FD/F0/ED # Base 00 - Black
-  set color01 F7/93/9B # Base 08 - Red
-  set color02 94/E1/B0 # Base 0B - Green
-  set color03 FB/E0/D9 # Base 0A - Yellow
-  set color04 DA/10/3F # Base 0D - Blue
-  set color05 1D/89/91 # Base 0E - Magenta
-  set color06 DC/33/18 # Base 0C - Cyan
-  set color07 40/3C/3D # Base 05 - White
-  set color08 BD/B3/B1 # Base 03 - Bright Black
+  set color00 '#FDF0ED' # Base 00 - Black
+  set color01 '#F7939B' # Base 08 - Red
+  set color02 '#94E1B0' # Base 0B - Green
+  set color03 '#FBE0D9' # Base 0A - Yellow
+  set color04 '#DA103F' # Base 0D - Blue
+  set color05 '#1D8991' # Base 0E - Magenta
+  set color06 '#DC3318' # Base 0C - Cyan
+  set color07 '#403C3D' # Base 05 - White
+  set color08 '#BDB3B1' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 20/1C/1D # Base 07 - Bright White
-  set color16 F6/66/1E # Base 09
-  set color17 E5/8C/92 # Base 0F
-  set color18 FA/DA/D1 # Base 01
-  set color19 F9/CB/BE # Base 02
-  set color20 94/8C/8A # Base 04
-  set color21 30/2C/2D # Base 06
+  set color15 '#201C1D' # Base 07 - Bright White
+  set color16 '#F6661E' # Base 09
+  set color17 '#E58C92' # Base 0F
+  set color18 '#FADAD1' # Base 01
+  set color19 '#F9CBBE' # Base 02
+  set color20 '#948C8A' # Base 04
+  set color21 '#302C2D' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 
