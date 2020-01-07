@@ -30,7 +30,7 @@ function base16-greenscreen -d "Green Screen"
 
   function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
   function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
-  function put_template_custom; printf '\033]%s%s\033\\' $argv; end;/}
+  function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
 
   # 16 color space
   put_template 0  $color00
@@ -106,6 +106,9 @@ function base16-greenscreen -d "Green Screen"
   set -U fish_pager_color_description yellow --dim
   set -U fish_pager_color_prefix white --bold #--underline
   set -U fish_pager_color_progress brwhite --background=cyan
+  # FZF theme
+  # FZF theme
+  set -u FZF_DEFAULT_OPTS "--color=bg+:$color01,bg:$color00,spinner:$color12,hl:$color13 --color=fg:$color04,header:$color13,info:$color10,pointer:$color12 --color=marker:$color12,fg+:$color06,prompt:$color10,hl+:$color13"
 
   # remember current theme
   set -U base16_theme greenscreen
