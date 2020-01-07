@@ -3,51 +3,34 @@
 # Hopscotch scheme by Jan T. Sott
 
 function base16-hopscotch -d "Hopscotch"
-  set color00 32/29/31 # Base 00 - Black
-  set color01 dd/46/4c # Base 08 - Red
-  set color02 8f/c1/3e # Base 0B - Green
-  set color03 fd/cc/59 # Base 0A - Yellow
-  set color04 12/90/bf # Base 0D - Blue
-  set color05 c8/5e/7c # Base 0E - Magenta
-  set color06 14/9b/93 # Base 0C - Cyan
-  set color07 b9/b5/b8 # Base 05 - White
-  set color08 79/73/79 # Base 03 - Bright Black
+  set color00 '#322931' # Base 00 - Black
+  set color01 '#dd464c' # Base 08 - Red
+  set color02 '#8fc13e' # Base 0B - Green
+  set color03 '#fdcc59' # Base 0A - Yellow
+  set color04 '#1290bf' # Base 0D - Blue
+  set color05 '#c85e7c' # Base 0E - Magenta
+  set color06 '#149b93' # Base 0C - Cyan
+  set color07 '#b9b5b8' # Base 05 - White
+  set color08 '#797379' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 ff/ff/ff # Base 07 - Bright White
-  set color16 fd/8b/19 # Base 09
-  set color17 b3/35/08 # Base 0F
-  set color18 43/3b/42 # Base 01
-  set color19 5c/54/5b # Base 02
-  set color20 98/94/98 # Base 04
-  set color21 d5/d3/d5 # Base 06
+  set color15 '#ffffff' # Base 07 - Bright White
+  set color16 '#fd8b19' # Base 09
+  set color17 '#b33508' # Base 0F
+  set color18 '#433b42' # Base 01
+  set color19 '#5c545b' # Base 02
+  set color20 '#989498' # Base 04
+  set color21 '#d5d3d5' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 
-  if test -n "$TMUX"
-    # Tell tmux to pass the escape sequences through
-    # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
-    function put_template; printf '\033Ptmux;\033\033]4;%d;rgb:%s\033\033\\\033\\' $argv; end;
-    function put_template_var; printf '\033Ptmux;\033\033]%d;rgb:%s\033\033\\\033\\' $argv; end;
-    function put_template_custom; printf '\033Ptmux;\033\033]%s%s\033\033\\\033\\' $argv; end;
-  else if string match 'screen*' $TERM # [ "${TERM%%[-.]*}" = "screen" ]
-    # GNU screen (screen, screen-256color, screen-256color-bce)
-    function put_template; printf '\033P\033]4;%d;rgb:%s\007\033\\' $argv; end;
-    function put_template_var; printf '\033P\033]%d;rgb:%s\007\033\\' $argv; end;
-    function put_template_custom; printf '\033P\033]%s%s\007\033\\' $argv; end;
-  else if string match 'linux*' $TERM # [ "${TERM%%-*}" = "linux" ]
-    function put_template; test $1 -lt 16 && printf "\e]P%x%s" $1 (echo $2 | sed 's/\///g'); end;
-    function put_template_var; true; end;
-    function put_template_custom; true; end;
-  else
-    function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
-    function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
-    function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
-  end
+  function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
+  function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
+  function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
 
   # 16 color space
   put_template 0  $color00
@@ -123,6 +106,9 @@ function base16-hopscotch -d "Hopscotch"
   set -U fish_pager_color_description yellow --dim
   set -U fish_pager_color_prefix white --bold #--underline
   set -U fish_pager_color_progress brwhite --background=cyan
+  # FZF theme
+  # FZF theme
+  set -u FZF_DEFAULT_OPTS "--color=bg+:$color01,bg:$color00,spinner:$color12,hl:$color13 --color=fg:$color04,header:$color13,info:$color10,pointer:$color12 --color=marker:$color12,fg+:$color06,prompt:$color10,hl+:$color13"
 
   # remember current theme
   set -U base16_theme hopscotch

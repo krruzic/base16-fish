@@ -3,51 +3,34 @@
 # Atelier Dune scheme by Bram de Haan (http://atelierbramdehaan.nl)
 
 function base16-atelier-dune -d "Atelier Dune"
-  set color00 20/20/1d # Base 00 - Black
-  set color01 d7/37/37 # Base 08 - Red
-  set color02 60/ac/39 # Base 0B - Green
-  set color03 ae/95/13 # Base 0A - Yellow
-  set color04 66/84/e1 # Base 0D - Blue
-  set color05 b8/54/d4 # Base 0E - Magenta
-  set color06 1f/ad/83 # Base 0C - Cyan
-  set color07 a6/a2/8c # Base 05 - White
-  set color08 7d/7a/68 # Base 03 - Bright Black
+  set color00 '#20201d' # Base 00 - Black
+  set color01 '#d73737' # Base 08 - Red
+  set color02 '#60ac39' # Base 0B - Green
+  set color03 '#ae9513' # Base 0A - Yellow
+  set color04 '#6684e1' # Base 0D - Blue
+  set color05 '#b854d4' # Base 0E - Magenta
+  set color06 '#1fad83' # Base 0C - Cyan
+  set color07 '#a6a28c' # Base 05 - White
+  set color08 '#7d7a68' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 fe/fb/ec # Base 07 - Bright White
-  set color16 b6/56/11 # Base 09
-  set color17 d4/35/52 # Base 0F
-  set color18 29/28/24 # Base 01
-  set color19 6e/6b/5e # Base 02
-  set color20 99/95/80 # Base 04
-  set color21 e8/e4/cf # Base 06
+  set color15 '#fefbec' # Base 07 - Bright White
+  set color16 '#b65611' # Base 09
+  set color17 '#d43552' # Base 0F
+  set color18 '#292824' # Base 01
+  set color19 '#6e6b5e' # Base 02
+  set color20 '#999580' # Base 04
+  set color21 '#e8e4cf' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 
-  if test -n "$TMUX"
-    # Tell tmux to pass the escape sequences through
-    # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
-    function put_template; printf '\033Ptmux;\033\033]4;%d;rgb:%s\033\033\\\033\\' $argv; end;
-    function put_template_var; printf '\033Ptmux;\033\033]%d;rgb:%s\033\033\\\033\\' $argv; end;
-    function put_template_custom; printf '\033Ptmux;\033\033]%s%s\033\033\\\033\\' $argv; end;
-  else if string match 'screen*' $TERM # [ "${TERM%%[-.]*}" = "screen" ]
-    # GNU screen (screen, screen-256color, screen-256color-bce)
-    function put_template; printf '\033P\033]4;%d;rgb:%s\007\033\\' $argv; end;
-    function put_template_var; printf '\033P\033]%d;rgb:%s\007\033\\' $argv; end;
-    function put_template_custom; printf '\033P\033]%s%s\007\033\\' $argv; end;
-  else if string match 'linux*' $TERM # [ "${TERM%%-*}" = "linux" ]
-    function put_template; test $1 -lt 16 && printf "\e]P%x%s" $1 (echo $2 | sed 's/\///g'); end;
-    function put_template_var; true; end;
-    function put_template_custom; true; end;
-  else
-    function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
-    function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
-    function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
-  end
+  function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
+  function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
+  function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
 
   # 16 color space
   put_template 0  $color00
@@ -123,6 +106,9 @@ function base16-atelier-dune -d "Atelier Dune"
   set -U fish_pager_color_description yellow --dim
   set -U fish_pager_color_prefix white --bold #--underline
   set -U fish_pager_color_progress brwhite --background=cyan
+  # FZF theme
+  # FZF theme
+  set -u FZF_DEFAULT_OPTS "--color=bg+:$color01,bg:$color00,spinner:$color12,hl:$color13 --color=fg:$color04,header:$color13,info:$color10,pointer:$color12 --color=marker:$color12,fg+:$color06,prompt:$color10,hl+:$color13"
 
   # remember current theme
   set -U base16_theme atelier-dune

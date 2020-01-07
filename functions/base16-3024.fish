@@ -3,51 +3,34 @@
 # 3024 scheme by Jan T. Sott (http://github.com/idleberg)
 
 function base16-3024 -d "3024"
-  set color00 09/03/00 # Base 00 - Black
-  set color01 db/2d/20 # Base 08 - Red
-  set color02 01/a2/52 # Base 0B - Green
-  set color03 fd/ed/02 # Base 0A - Yellow
-  set color04 01/a0/e4 # Base 0D - Blue
-  set color05 a1/6a/94 # Base 0E - Magenta
-  set color06 b5/e4/f4 # Base 0C - Cyan
-  set color07 a5/a2/a2 # Base 05 - White
-  set color08 5c/58/55 # Base 03 - Bright Black
+  set color00 '#090300' # Base 00 - Black
+  set color01 '#db2d20' # Base 08 - Red
+  set color02 '#01a252' # Base 0B - Green
+  set color03 '#fded02' # Base 0A - Yellow
+  set color04 '#01a0e4' # Base 0D - Blue
+  set color05 '#a16a94' # Base 0E - Magenta
+  set color06 '#b5e4f4' # Base 0C - Cyan
+  set color07 '#a5a2a2' # Base 05 - White
+  set color08 '#5c5855' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 f7/f7/f7 # Base 07 - Bright White
-  set color16 e8/bb/d0 # Base 09
-  set color17 cd/ab/53 # Base 0F
-  set color18 3a/34/32 # Base 01
-  set color19 4a/45/43 # Base 02
-  set color20 80/7d/7c # Base 04
-  set color21 d6/d5/d4 # Base 06
+  set color15 '#f7f7f7' # Base 07 - Bright White
+  set color16 '#e8bbd0' # Base 09
+  set color17 '#cdab53' # Base 0F
+  set color18 '#3a3432' # Base 01
+  set color19 '#4a4543' # Base 02
+  set color20 '#807d7c' # Base 04
+  set color21 '#d6d5d4' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 
-  if test -n "$TMUX"
-    # Tell tmux to pass the escape sequences through
-    # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
-    function put_template; printf '\033Ptmux;\033\033]4;%d;rgb:%s\033\033\\\033\\' $argv; end;
-    function put_template_var; printf '\033Ptmux;\033\033]%d;rgb:%s\033\033\\\033\\' $argv; end;
-    function put_template_custom; printf '\033Ptmux;\033\033]%s%s\033\033\\\033\\' $argv; end;
-  else if string match 'screen*' $TERM # [ "${TERM%%[-.]*}" = "screen" ]
-    # GNU screen (screen, screen-256color, screen-256color-bce)
-    function put_template; printf '\033P\033]4;%d;rgb:%s\007\033\\' $argv; end;
-    function put_template_var; printf '\033P\033]%d;rgb:%s\007\033\\' $argv; end;
-    function put_template_custom; printf '\033P\033]%s%s\007\033\\' $argv; end;
-  else if string match 'linux*' $TERM # [ "${TERM%%-*}" = "linux" ]
-    function put_template; test $1 -lt 16 && printf "\e]P%x%s" $1 (echo $2 | sed 's/\///g'); end;
-    function put_template_var; true; end;
-    function put_template_custom; true; end;
-  else
-    function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
-    function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
-    function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
-  end
+  function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
+  function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
+  function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
 
   # 16 color space
   put_template 0  $color00
@@ -123,6 +106,9 @@ function base16-3024 -d "3024"
   set -U fish_pager_color_description yellow --dim
   set -U fish_pager_color_prefix white --bold #--underline
   set -U fish_pager_color_progress brwhite --background=cyan
+  # FZF theme
+  # FZF theme
+  set -u FZF_DEFAULT_OPTS "--color=bg+:$color01,bg:$color00,spinner:$color12,hl:$color13 --color=fg:$color04,header:$color13,info:$color10,pointer:$color12 --color=marker:$color12,fg+:$color06,prompt:$color10,hl+:$color13"
 
   # remember current theme
   set -U base16_theme 3024

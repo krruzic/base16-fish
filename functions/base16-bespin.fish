@@ -3,51 +3,34 @@
 # Bespin scheme by Jan T. Sott
 
 function base16-bespin -d "Bespin"
-  set color00 28/21/1c # Base 00 - Black
-  set color01 cf/6a/4c # Base 08 - Red
-  set color02 54/be/0d # Base 0B - Green
-  set color03 f9/ee/98 # Base 0A - Yellow
-  set color04 5e/a6/ea # Base 0D - Blue
-  set color05 9b/85/9d # Base 0E - Magenta
-  set color06 af/c4/db # Base 0C - Cyan
-  set color07 8a/89/86 # Base 05 - White
-  set color08 66/66/66 # Base 03 - Bright Black
+  set color00 '#28211c' # Base 00 - Black
+  set color01 '#cf6a4c' # Base 08 - Red
+  set color02 '#54be0d' # Base 0B - Green
+  set color03 '#f9ee98' # Base 0A - Yellow
+  set color04 '#5ea6ea' # Base 0D - Blue
+  set color05 '#9b859d' # Base 0E - Magenta
+  set color06 '#afc4db' # Base 0C - Cyan
+  set color07 '#8a8986' # Base 05 - White
+  set color08 '#666666' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 ba/ae/9e # Base 07 - Bright White
-  set color16 cf/7d/34 # Base 09
-  set color17 93/71/21 # Base 0F
-  set color18 36/31/2e # Base 01
-  set color19 5e/5d/5c # Base 02
-  set color20 79/79/77 # Base 04
-  set color21 9d/9b/97 # Base 06
+  set color15 '#baae9e' # Base 07 - Bright White
+  set color16 '#cf7d34' # Base 09
+  set color17 '#937121' # Base 0F
+  set color18 '#36312e' # Base 01
+  set color19 '#5e5d5c' # Base 02
+  set color20 '#797977' # Base 04
+  set color21 '#9d9b97' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 
-  if test -n "$TMUX"
-    # Tell tmux to pass the escape sequences through
-    # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
-    function put_template; printf '\033Ptmux;\033\033]4;%d;rgb:%s\033\033\\\033\\' $argv; end;
-    function put_template_var; printf '\033Ptmux;\033\033]%d;rgb:%s\033\033\\\033\\' $argv; end;
-    function put_template_custom; printf '\033Ptmux;\033\033]%s%s\033\033\\\033\\' $argv; end;
-  else if string match 'screen*' $TERM # [ "${TERM%%[-.]*}" = "screen" ]
-    # GNU screen (screen, screen-256color, screen-256color-bce)
-    function put_template; printf '\033P\033]4;%d;rgb:%s\007\033\\' $argv; end;
-    function put_template_var; printf '\033P\033]%d;rgb:%s\007\033\\' $argv; end;
-    function put_template_custom; printf '\033P\033]%s%s\007\033\\' $argv; end;
-  else if string match 'linux*' $TERM # [ "${TERM%%-*}" = "linux" ]
-    function put_template; test $1 -lt 16 && printf "\e]P%x%s" $1 (echo $2 | sed 's/\///g'); end;
-    function put_template_var; true; end;
-    function put_template_custom; true; end;
-  else
-    function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
-    function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
-    function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
-  end
+  function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
+  function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
+  function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
 
   # 16 color space
   put_template 0  $color00
@@ -123,6 +106,9 @@ function base16-bespin -d "Bespin"
   set -U fish_pager_color_description yellow --dim
   set -U fish_pager_color_prefix white --bold #--underline
   set -U fish_pager_color_progress brwhite --background=cyan
+  # FZF theme
+  # FZF theme
+  set -u FZF_DEFAULT_OPTS "--color=bg+:$color01,bg:$color00,spinner:$color12,hl:$color13 --color=fg:$color04,header:$color13,info:$color10,pointer:$color12 --color=marker:$color12,fg+:$color06,prompt:$color10,hl+:$color13"
 
   # remember current theme
   set -U base16_theme bespin

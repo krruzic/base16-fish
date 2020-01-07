@@ -3,51 +3,34 @@
 # Heetch Light scheme by Geoffrey Teale (tealeg@gmail.com)
 
 function base16-heetch-light -d "Heetch Light"
-  set color00 fe/ff/ff # Base 00 - Black
-  set color01 27/d9/d5 # Base 08 - Red
-  set color02 f8/00/59 # Base 0B - Green
-  set color03 5b/a2/b6 # Base 0A - Yellow
-  set color04 47/f9/f5 # Base 0D - Blue
-  set color05 bd/01/52 # Base 0E - Magenta
-  set color06 c3/36/78 # Base 0C - Cyan
-  set color07 5a/49/6e # Base 05 - White
-  set color08 9c/92/a8 # Base 03 - Bright Black
+  set color00 '#feffff' # Base 00 - Black
+  set color01 '#27d9d5' # Base 08 - Red
+  set color02 '#f80059' # Base 0B - Green
+  set color03 '#5ba2b6' # Base 0A - Yellow
+  set color04 '#47f9f5' # Base 0D - Blue
+  set color05 '#bd0152' # Base 0E - Magenta
+  set color06 '#c33678' # Base 0C - Cyan
+  set color07 '#5a496e' # Base 05 - White
+  set color08 '#9c92a8' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 19/01/34 # Base 07 - Bright White
-  set color16 bd/b6/c5 # Base 09
-  set color17 de/da/e2 # Base 0F
-  set color18 39/25/51 # Base 01
-  set color19 7b/6d/8b # Base 02
-  set color20 dd/d6/e5 # Base 04
-  set color21 47/05/46 # Base 06
+  set color15 '#190134' # Base 07 - Bright White
+  set color16 '#bdb6c5' # Base 09
+  set color17 '#dedae2' # Base 0F
+  set color18 '#392551' # Base 01
+  set color19 '#7b6d8b' # Base 02
+  set color20 '#ddd6e5' # Base 04
+  set color21 '#470546' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 
-  if test -n "$TMUX"
-    # Tell tmux to pass the escape sequences through
-    # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
-    function put_template; printf '\033Ptmux;\033\033]4;%d;rgb:%s\033\033\\\033\\' $argv; end;
-    function put_template_var; printf '\033Ptmux;\033\033]%d;rgb:%s\033\033\\\033\\' $argv; end;
-    function put_template_custom; printf '\033Ptmux;\033\033]%s%s\033\033\\\033\\' $argv; end;
-  else if string match 'screen*' $TERM # [ "${TERM%%[-.]*}" = "screen" ]
-    # GNU screen (screen, screen-256color, screen-256color-bce)
-    function put_template; printf '\033P\033]4;%d;rgb:%s\007\033\\' $argv; end;
-    function put_template_var; printf '\033P\033]%d;rgb:%s\007\033\\' $argv; end;
-    function put_template_custom; printf '\033P\033]%s%s\007\033\\' $argv; end;
-  else if string match 'linux*' $TERM # [ "${TERM%%-*}" = "linux" ]
-    function put_template; test $1 -lt 16 && printf "\e]P%x%s" $1 (echo $2 | sed 's/\///g'); end;
-    function put_template_var; true; end;
-    function put_template_custom; true; end;
-  else
-    function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
-    function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
-    function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
-  end
+  function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
+  function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
+  function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
 
   # 16 color space
   put_template 0  $color00
@@ -123,6 +106,9 @@ function base16-heetch-light -d "Heetch Light"
   set -U fish_pager_color_description yellow --dim
   set -U fish_pager_color_prefix white --bold #--underline
   set -U fish_pager_color_progress brwhite --background=cyan
+  # FZF theme
+  # FZF theme
+  set -u FZF_DEFAULT_OPTS "--color=bg+:$color01,bg:$color00,spinner:$color12,hl:$color13 --color=fg:$color04,header:$color13,info:$color10,pointer:$color12 --color=marker:$color12,fg+:$color06,prompt:$color10,hl+:$color13"
 
   # remember current theme
   set -U base16_theme heetch-light

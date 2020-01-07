@@ -3,51 +3,34 @@
 # Codeschool scheme by blockloop
 
 function base16-codeschool -d "Codeschool"
-  set color00 23/2c/31 # Base 00 - Black
-  set color01 2a/54/91 # Base 08 - Red
-  set color02 23/79/86 # Base 0B - Green
-  set color03 a0/3b/1e # Base 0A - Yellow
-  set color04 48/4d/79 # Base 0D - Blue
-  set color05 c5/98/20 # Base 0E - Magenta
-  set color06 b0/2f/30 # Base 0C - Cyan
-  set color07 9e/a7/a6 # Base 05 - White
-  set color08 3f/49/44 # Base 03 - Bright Black
+  set color00 '#232c31' # Base 00 - Black
+  set color01 '#2a5491' # Base 08 - Red
+  set color02 '#237986' # Base 0B - Green
+  set color03 '#a03b1e' # Base 0A - Yellow
+  set color04 '#484d79' # Base 0D - Blue
+  set color05 '#c59820' # Base 0E - Magenta
+  set color06 '#b02f30' # Base 0C - Cyan
+  set color07 '#9ea7a6' # Base 05 - White
+  set color08 '#3f4944' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 b5/d8/f6 # Base 07 - Bright White
-  set color16 43/82/0d # Base 09
-  set color17 c9/83/44 # Base 0F
-  set color18 1c/36/57 # Base 01
-  set color19 2a/34/3a # Base 02
-  set color20 84/89/8c # Base 04
-  set color21 a7/cf/a3 # Base 06
+  set color15 '#b5d8f6' # Base 07 - Bright White
+  set color16 '#43820d' # Base 09
+  set color17 '#c98344' # Base 0F
+  set color18 '#1c3657' # Base 01
+  set color19 '#2a343a' # Base 02
+  set color20 '#84898c' # Base 04
+  set color21 '#a7cfa3' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 
-  if test -n "$TMUX"
-    # Tell tmux to pass the escape sequences through
-    # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
-    function put_template; printf '\033Ptmux;\033\033]4;%d;rgb:%s\033\033\\\033\\' $argv; end;
-    function put_template_var; printf '\033Ptmux;\033\033]%d;rgb:%s\033\033\\\033\\' $argv; end;
-    function put_template_custom; printf '\033Ptmux;\033\033]%s%s\033\033\\\033\\' $argv; end;
-  else if string match 'screen*' $TERM # [ "${TERM%%[-.]*}" = "screen" ]
-    # GNU screen (screen, screen-256color, screen-256color-bce)
-    function put_template; printf '\033P\033]4;%d;rgb:%s\007\033\\' $argv; end;
-    function put_template_var; printf '\033P\033]%d;rgb:%s\007\033\\' $argv; end;
-    function put_template_custom; printf '\033P\033]%s%s\007\033\\' $argv; end;
-  else if string match 'linux*' $TERM # [ "${TERM%%-*}" = "linux" ]
-    function put_template; test $1 -lt 16 && printf "\e]P%x%s" $1 (echo $2 | sed 's/\///g'); end;
-    function put_template_var; true; end;
-    function put_template_custom; true; end;
-  else
-    function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
-    function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
-    function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
-  end
+  function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
+  function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
+  function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
 
   # 16 color space
   put_template 0  $color00
@@ -123,6 +106,9 @@ function base16-codeschool -d "Codeschool"
   set -U fish_pager_color_description yellow --dim
   set -U fish_pager_color_prefix white --bold #--underline
   set -U fish_pager_color_progress brwhite --background=cyan
+  # FZF theme
+  # FZF theme
+  set -u FZF_DEFAULT_OPTS "--color=bg+:$color01,bg:$color00,spinner:$color12,hl:$color13 --color=fg:$color04,header:$color13,info:$color10,pointer:$color12 --color=marker:$color12,fg+:$color06,prompt:$color10,hl+:$color13"
 
   # remember current theme
   set -U base16_theme codeschool

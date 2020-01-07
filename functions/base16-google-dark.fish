@@ -3,51 +3,34 @@
 # Google Dark scheme by Seth Wright (http://sethawright.com)
 
 function base16-google-dark -d "Google Dark"
-  set color00 1d/1f/21 # Base 00 - Black
-  set color01 CC/34/2B # Base 08 - Red
-  set color02 19/88/44 # Base 0B - Green
-  set color03 FB/A9/22 # Base 0A - Yellow
-  set color04 39/71/ED # Base 0D - Blue
-  set color05 A3/6A/C7 # Base 0E - Magenta
-  set color06 39/71/ED # Base 0C - Cyan
-  set color07 c5/c8/c6 # Base 05 - White
-  set color08 96/98/96 # Base 03 - Bright Black
+  set color00 '#1d1f21' # Base 00 - Black
+  set color01 '#CC342B' # Base 08 - Red
+  set color02 '#198844' # Base 0B - Green
+  set color03 '#FBA922' # Base 0A - Yellow
+  set color04 '#3971ED' # Base 0D - Blue
+  set color05 '#A36AC7' # Base 0E - Magenta
+  set color06 '#3971ED' # Base 0C - Cyan
+  set color07 '#c5c8c6' # Base 05 - White
+  set color08 '#969896' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 ff/ff/ff # Base 07 - Bright White
-  set color16 F9/6A/38 # Base 09
-  set color17 39/71/ED # Base 0F
-  set color18 28/2a/2e # Base 01
-  set color19 37/3b/41 # Base 02
-  set color20 b4/b7/b4 # Base 04
-  set color21 e0/e0/e0 # Base 06
+  set color15 '#ffffff' # Base 07 - Bright White
+  set color16 '#F96A38' # Base 09
+  set color17 '#3971ED' # Base 0F
+  set color18 '#282a2e' # Base 01
+  set color19 '#373b41' # Base 02
+  set color20 '#b4b7b4' # Base 04
+  set color21 '#e0e0e0' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 
-  if test -n "$TMUX"
-    # Tell tmux to pass the escape sequences through
-    # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
-    function put_template; printf '\033Ptmux;\033\033]4;%d;rgb:%s\033\033\\\033\\' $argv; end;
-    function put_template_var; printf '\033Ptmux;\033\033]%d;rgb:%s\033\033\\\033\\' $argv; end;
-    function put_template_custom; printf '\033Ptmux;\033\033]%s%s\033\033\\\033\\' $argv; end;
-  else if string match 'screen*' $TERM # [ "${TERM%%[-.]*}" = "screen" ]
-    # GNU screen (screen, screen-256color, screen-256color-bce)
-    function put_template; printf '\033P\033]4;%d;rgb:%s\007\033\\' $argv; end;
-    function put_template_var; printf '\033P\033]%d;rgb:%s\007\033\\' $argv; end;
-    function put_template_custom; printf '\033P\033]%s%s\007\033\\' $argv; end;
-  else if string match 'linux*' $TERM # [ "${TERM%%-*}" = "linux" ]
-    function put_template; test $1 -lt 16 && printf "\e]P%x%s" $1 (echo $2 | sed 's/\///g'); end;
-    function put_template_var; true; end;
-    function put_template_custom; true; end;
-  else
-    function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
-    function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
-    function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
-  end
+  function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
+  function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
+  function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
 
   # 16 color space
   put_template 0  $color00
@@ -123,6 +106,9 @@ function base16-google-dark -d "Google Dark"
   set -U fish_pager_color_description yellow --dim
   set -U fish_pager_color_prefix white --bold #--underline
   set -U fish_pager_color_progress brwhite --background=cyan
+  # FZF theme
+  # FZF theme
+  set -u FZF_DEFAULT_OPTS "--color=bg+:$color01,bg:$color00,spinner:$color12,hl:$color13 --color=fg:$color04,header:$color13,info:$color10,pointer:$color12 --color=marker:$color12,fg+:$color06,prompt:$color10,hl+:$color13"
 
   # remember current theme
   set -U base16_theme google-dark

@@ -3,51 +3,34 @@
 # OceanicNext scheme by https://github.com/voronianski/oceanic-next-color-scheme
 
 function base16-oceanicnext -d "OceanicNext"
-  set color00 1B/2B/34 # Base 00 - Black
-  set color01 EC/5f/67 # Base 08 - Red
-  set color02 99/C7/94 # Base 0B - Green
-  set color03 FA/C8/63 # Base 0A - Yellow
-  set color04 66/99/CC # Base 0D - Blue
-  set color05 C5/94/C5 # Base 0E - Magenta
-  set color06 5F/B3/B3 # Base 0C - Cyan
-  set color07 C0/C5/CE # Base 05 - White
-  set color08 65/73/7E # Base 03 - Bright Black
+  set color00 '#1B2B34' # Base 00 - Black
+  set color01 '#EC5f67' # Base 08 - Red
+  set color02 '#99C794' # Base 0B - Green
+  set color03 '#FAC863' # Base 0A - Yellow
+  set color04 '#6699CC' # Base 0D - Blue
+  set color05 '#C594C5' # Base 0E - Magenta
+  set color06 '#5FB3B3' # Base 0C - Cyan
+  set color07 '#C0C5CE' # Base 05 - White
+  set color08 '#65737E' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 D8/DE/E9 # Base 07 - Bright White
-  set color16 F9/91/57 # Base 09
-  set color17 AB/79/67 # Base 0F
-  set color18 34/3D/46 # Base 01
-  set color19 4F/5B/66 # Base 02
-  set color20 A7/AD/BA # Base 04
-  set color21 CD/D3/DE # Base 06
+  set color15 '#D8DEE9' # Base 07 - Bright White
+  set color16 '#F99157' # Base 09
+  set color17 '#AB7967' # Base 0F
+  set color18 '#343D46' # Base 01
+  set color19 '#4F5B66' # Base 02
+  set color20 '#A7ADBA' # Base 04
+  set color21 '#CDD3DE' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 
-  if test -n "$TMUX"
-    # Tell tmux to pass the escape sequences through
-    # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
-    function put_template; printf '\033Ptmux;\033\033]4;%d;rgb:%s\033\033\\\033\\' $argv; end;
-    function put_template_var; printf '\033Ptmux;\033\033]%d;rgb:%s\033\033\\\033\\' $argv; end;
-    function put_template_custom; printf '\033Ptmux;\033\033]%s%s\033\033\\\033\\' $argv; end;
-  else if string match 'screen*' $TERM # [ "${TERM%%[-.]*}" = "screen" ]
-    # GNU screen (screen, screen-256color, screen-256color-bce)
-    function put_template; printf '\033P\033]4;%d;rgb:%s\007\033\\' $argv; end;
-    function put_template_var; printf '\033P\033]%d;rgb:%s\007\033\\' $argv; end;
-    function put_template_custom; printf '\033P\033]%s%s\007\033\\' $argv; end;
-  else if string match 'linux*' $TERM # [ "${TERM%%-*}" = "linux" ]
-    function put_template; test $1 -lt 16 && printf "\e]P%x%s" $1 (echo $2 | sed 's/\///g'); end;
-    function put_template_var; true; end;
-    function put_template_custom; true; end;
-  else
-    function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
-    function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
-    function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
-  end
+  function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
+  function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
+  function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
 
   # 16 color space
   put_template 0  $color00
@@ -123,6 +106,9 @@ function base16-oceanicnext -d "OceanicNext"
   set -U fish_pager_color_description yellow --dim
   set -U fish_pager_color_prefix white --bold #--underline
   set -U fish_pager_color_progress brwhite --background=cyan
+  # FZF theme
+  # FZF theme
+  set -u FZF_DEFAULT_OPTS "--color=bg+:$color01,bg:$color00,spinner:$color12,hl:$color13 --color=fg:$color04,header:$color13,info:$color10,pointer:$color12 --color=marker:$color12,fg+:$color06,prompt:$color10,hl+:$color13"
 
   # remember current theme
   set -U base16_theme oceanicnext

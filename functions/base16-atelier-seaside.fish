@@ -3,51 +3,34 @@
 # Atelier Seaside scheme by Bram de Haan (http://atelierbramdehaan.nl)
 
 function base16-atelier-seaside -d "Atelier Seaside"
-  set color00 13/15/13 # Base 00 - Black
-  set color01 e6/19/3c # Base 08 - Red
-  set color02 29/a3/29 # Base 0B - Green
-  set color03 98/98/1b # Base 0A - Yellow
-  set color04 3d/62/f5 # Base 0D - Blue
-  set color05 ad/2b/ee # Base 0E - Magenta
-  set color06 19/99/b3 # Base 0C - Cyan
-  set color07 8c/a6/8c # Base 05 - White
-  set color08 68/7d/68 # Base 03 - Bright Black
+  set color00 '#131513' # Base 00 - Black
+  set color01 '#e6193c' # Base 08 - Red
+  set color02 '#29a329' # Base 0B - Green
+  set color03 '#98981b' # Base 0A - Yellow
+  set color04 '#3d62f5' # Base 0D - Blue
+  set color05 '#ad2bee' # Base 0E - Magenta
+  set color06 '#1999b3' # Base 0C - Cyan
+  set color07 '#8ca68c' # Base 05 - White
+  set color08 '#687d68' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 f4/fb/f4 # Base 07 - Bright White
-  set color16 87/71/1d # Base 09
-  set color17 e6/19/c3 # Base 0F
-  set color18 24/29/24 # Base 01
-  set color19 5e/6e/5e # Base 02
-  set color20 80/99/80 # Base 04
-  set color21 cf/e8/cf # Base 06
+  set color15 '#f4fbf4' # Base 07 - Bright White
+  set color16 '#87711d' # Base 09
+  set color17 '#e619c3' # Base 0F
+  set color18 '#242924' # Base 01
+  set color19 '#5e6e5e' # Base 02
+  set color20 '#809980' # Base 04
+  set color21 '#cfe8cf' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 
-  if test -n "$TMUX"
-    # Tell tmux to pass the escape sequences through
-    # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
-    function put_template; printf '\033Ptmux;\033\033]4;%d;rgb:%s\033\033\\\033\\' $argv; end;
-    function put_template_var; printf '\033Ptmux;\033\033]%d;rgb:%s\033\033\\\033\\' $argv; end;
-    function put_template_custom; printf '\033Ptmux;\033\033]%s%s\033\033\\\033\\' $argv; end;
-  else if string match 'screen*' $TERM # [ "${TERM%%[-.]*}" = "screen" ]
-    # GNU screen (screen, screen-256color, screen-256color-bce)
-    function put_template; printf '\033P\033]4;%d;rgb:%s\007\033\\' $argv; end;
-    function put_template_var; printf '\033P\033]%d;rgb:%s\007\033\\' $argv; end;
-    function put_template_custom; printf '\033P\033]%s%s\007\033\\' $argv; end;
-  else if string match 'linux*' $TERM # [ "${TERM%%-*}" = "linux" ]
-    function put_template; test $1 -lt 16 && printf "\e]P%x%s" $1 (echo $2 | sed 's/\///g'); end;
-    function put_template_var; true; end;
-    function put_template_custom; true; end;
-  else
-    function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
-    function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
-    function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
-  end
+  function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
+  function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
+  function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
 
   # 16 color space
   put_template 0  $color00
@@ -123,6 +106,9 @@ function base16-atelier-seaside -d "Atelier Seaside"
   set -U fish_pager_color_description yellow --dim
   set -U fish_pager_color_prefix white --bold #--underline
   set -U fish_pager_color_progress brwhite --background=cyan
+  # FZF theme
+  # FZF theme
+  set -u FZF_DEFAULT_OPTS "--color=bg+:$color01,bg:$color00,spinner:$color12,hl:$color13 --color=fg:$color04,header:$color13,info:$color10,pointer:$color12 --color=marker:$color12,fg+:$color06,prompt:$color10,hl+:$color13"
 
   # remember current theme
   set -U base16_theme atelier-seaside

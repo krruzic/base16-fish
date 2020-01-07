@@ -3,51 +3,34 @@
 # Gruvbox dark, soft scheme by Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
 
 function base16-gruvbox-dark-soft -d "Gruvbox dark, soft"
-  set color00 32/30/2f # Base 00 - Black
-  set color01 fb/49/34 # Base 08 - Red
-  set color02 b8/bb/26 # Base 0B - Green
-  set color03 fa/bd/2f # Base 0A - Yellow
-  set color04 83/a5/98 # Base 0D - Blue
-  set color05 d3/86/9b # Base 0E - Magenta
-  set color06 8e/c0/7c # Base 0C - Cyan
-  set color07 d5/c4/a1 # Base 05 - White
-  set color08 66/5c/54 # Base 03 - Bright Black
+  set color00 '#32302f' # Base 00 - Black
+  set color01 '#fb4934' # Base 08 - Red
+  set color02 '#b8bb26' # Base 0B - Green
+  set color03 '#fabd2f' # Base 0A - Yellow
+  set color04 '#83a598' # Base 0D - Blue
+  set color05 '#d3869b' # Base 0E - Magenta
+  set color06 '#8ec07c' # Base 0C - Cyan
+  set color07 '#d5c4a1' # Base 05 - White
+  set color08 '#665c54' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 fb/f1/c7 # Base 07 - Bright White
-  set color16 fe/80/19 # Base 09
-  set color17 d6/5d/0e # Base 0F
-  set color18 3c/38/36 # Base 01
-  set color19 50/49/45 # Base 02
-  set color20 bd/ae/93 # Base 04
-  set color21 eb/db/b2 # Base 06
+  set color15 '#fbf1c7' # Base 07 - Bright White
+  set color16 '#fe8019' # Base 09
+  set color17 '#d65d0e' # Base 0F
+  set color18 '#3c3836' # Base 01
+  set color19 '#504945' # Base 02
+  set color20 '#bdae93' # Base 04
+  set color21 '#ebdbb2' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 
-  if test -n "$TMUX"
-    # Tell tmux to pass the escape sequences through
-    # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
-    function put_template; printf '\033Ptmux;\033\033]4;%d;rgb:%s\033\033\\\033\\' $argv; end;
-    function put_template_var; printf '\033Ptmux;\033\033]%d;rgb:%s\033\033\\\033\\' $argv; end;
-    function put_template_custom; printf '\033Ptmux;\033\033]%s%s\033\033\\\033\\' $argv; end;
-  else if string match 'screen*' $TERM # [ "${TERM%%[-.]*}" = "screen" ]
-    # GNU screen (screen, screen-256color, screen-256color-bce)
-    function put_template; printf '\033P\033]4;%d;rgb:%s\007\033\\' $argv; end;
-    function put_template_var; printf '\033P\033]%d;rgb:%s\007\033\\' $argv; end;
-    function put_template_custom; printf '\033P\033]%s%s\007\033\\' $argv; end;
-  else if string match 'linux*' $TERM # [ "${TERM%%-*}" = "linux" ]
-    function put_template; test $1 -lt 16 && printf "\e]P%x%s" $1 (echo $2 | sed 's/\///g'); end;
-    function put_template_var; true; end;
-    function put_template_custom; true; end;
-  else
-    function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
-    function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
-    function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
-  end
+  function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
+  function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
+  function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
 
   # 16 color space
   put_template 0  $color00
@@ -123,6 +106,9 @@ function base16-gruvbox-dark-soft -d "Gruvbox dark, soft"
   set -U fish_pager_color_description yellow --dim
   set -U fish_pager_color_prefix white --bold #--underline
   set -U fish_pager_color_progress brwhite --background=cyan
+  # FZF theme
+  # FZF theme
+  set -u FZF_DEFAULT_OPTS "--color=bg+:$color01,bg:$color00,spinner:$color12,hl:$color13 --color=fg:$color04,header:$color13,info:$color10,pointer:$color12 --color=marker:$color12,fg+:$color06,prompt:$color10,hl+:$color13"
 
   # remember current theme
   set -U base16_theme gruvbox-dark-soft

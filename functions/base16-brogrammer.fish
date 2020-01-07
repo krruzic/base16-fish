@@ -3,51 +3,34 @@
 # Brogrammer scheme by Vik Ramanujam (http://github.com/piggyslasher)
 
 function base16-brogrammer -d "Brogrammer"
-  set color00 1f/1f/1f # Base 00 - Black
-  set color01 d6/db/e5 # Base 08 - Red
-  set color02 f3/bd/09 # Base 0B - Green
-  set color03 1d/d3/61 # Base 0A - Yellow
-  set color04 53/50/b9 # Base 0D - Blue
-  set color05 0f/7d/db # Base 0E - Magenta
-  set color06 10/81/d6 # Base 0C - Cyan
-  set color07 4e/5a/b7 # Base 05 - White
-  set color08 ec/ba/0f # Base 03 - Bright Black
+  set color00 '#1f1f1f' # Base 00 - Black
+  set color01 '#d6dbe5' # Base 08 - Red
+  set color02 '#f3bd09' # Base 0B - Green
+  set color03 '#1dd361' # Base 0A - Yellow
+  set color04 '#5350b9' # Base 0D - Blue
+  set color05 '#0f7ddb' # Base 0E - Magenta
+  set color06 '#1081d6' # Base 0C - Cyan
+  set color07 '#4e5ab7' # Base 05 - White
+  set color08 '#ecba0f' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 d6/db/e5 # Base 07 - Bright White
-  set color16 de/35/2e # Base 09
-  set color17 ff/ff/ff # Base 0F
-  set color18 f8/11/18 # Base 01
-  set color19 2d/c5/5e # Base 02
-  set color20 2a/84/d2 # Base 04
-  set color21 10/81/d6 # Base 06
+  set color15 '#d6dbe5' # Base 07 - Bright White
+  set color16 '#de352e' # Base 09
+  set color17 '#ffffff' # Base 0F
+  set color18 '#f81118' # Base 01
+  set color19 '#2dc55e' # Base 02
+  set color20 '#2a84d2' # Base 04
+  set color21 '#1081d6' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 
-  if test -n "$TMUX"
-    # Tell tmux to pass the escape sequences through
-    # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
-    function put_template; printf '\033Ptmux;\033\033]4;%d;rgb:%s\033\033\\\033\\' $argv; end;
-    function put_template_var; printf '\033Ptmux;\033\033]%d;rgb:%s\033\033\\\033\\' $argv; end;
-    function put_template_custom; printf '\033Ptmux;\033\033]%s%s\033\033\\\033\\' $argv; end;
-  else if string match 'screen*' $TERM # [ "${TERM%%[-.]*}" = "screen" ]
-    # GNU screen (screen, screen-256color, screen-256color-bce)
-    function put_template; printf '\033P\033]4;%d;rgb:%s\007\033\\' $argv; end;
-    function put_template_var; printf '\033P\033]%d;rgb:%s\007\033\\' $argv; end;
-    function put_template_custom; printf '\033P\033]%s%s\007\033\\' $argv; end;
-  else if string match 'linux*' $TERM # [ "${TERM%%-*}" = "linux" ]
-    function put_template; test $1 -lt 16 && printf "\e]P%x%s" $1 (echo $2 | sed 's/\///g'); end;
-    function put_template_var; true; end;
-    function put_template_custom; true; end;
-  else
-    function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
-    function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
-    function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
-  end
+  function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
+  function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
+  function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
 
   # 16 color space
   put_template 0  $color00
@@ -123,6 +106,9 @@ function base16-brogrammer -d "Brogrammer"
   set -U fish_pager_color_description yellow --dim
   set -U fish_pager_color_prefix white --bold #--underline
   set -U fish_pager_color_progress brwhite --background=cyan
+  # FZF theme
+  # FZF theme
+  set -u FZF_DEFAULT_OPTS "--color=bg+:$color01,bg:$color00,spinner:$color12,hl:$color13 --color=fg:$color04,header:$color13,info:$color10,pointer:$color12 --color=marker:$color12,fg+:$color06,prompt:$color10,hl+:$color13"
 
   # remember current theme
   set -U base16_theme brogrammer

@@ -3,51 +3,34 @@
 # Woodland scheme by Jay Cornwall (https://jcornwall.com)
 
 function base16-woodland -d "Woodland"
-  set color00 23/1e/18 # Base 00 - Black
-  set color01 d3/5c/5c # Base 08 - Red
-  set color02 b7/ba/53 # Base 0B - Green
-  set color03 e0/ac/16 # Base 0A - Yellow
-  set color04 88/a4/d3 # Base 0D - Blue
-  set color05 bb/90/e2 # Base 0E - Magenta
-  set color06 6e/b9/58 # Base 0C - Cyan
-  set color07 ca/bc/b1 # Base 05 - White
-  set color08 9d/8b/70 # Base 03 - Bright Black
+  set color00 '#231e18' # Base 00 - Black
+  set color01 '#d35c5c' # Base 08 - Red
+  set color02 '#b7ba53' # Base 0B - Green
+  set color03 '#e0ac16' # Base 0A - Yellow
+  set color04 '#88a4d3' # Base 0D - Blue
+  set color05 '#bb90e2' # Base 0E - Magenta
+  set color06 '#6eb958' # Base 0C - Cyan
+  set color07 '#cabcb1' # Base 05 - White
+  set color08 '#9d8b70' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 e4/d4/c8 # Base 07 - Bright White
-  set color16 ca/7f/32 # Base 09
-  set color17 b4/93/68 # Base 0F
-  set color18 30/2b/25 # Base 01
-  set color19 48/41/3a # Base 02
-  set color20 b4/a4/90 # Base 04
-  set color21 d7/c8/bc # Base 06
+  set color15 '#e4d4c8' # Base 07 - Bright White
+  set color16 '#ca7f32' # Base 09
+  set color17 '#b49368' # Base 0F
+  set color18 '#302b25' # Base 01
+  set color19 '#48413a' # Base 02
+  set color20 '#b4a490' # Base 04
+  set color21 '#d7c8bc' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 
-  if test -n "$TMUX"
-    # Tell tmux to pass the escape sequences through
-    # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
-    function put_template; printf '\033Ptmux;\033\033]4;%d;rgb:%s\033\033\\\033\\' $argv; end;
-    function put_template_var; printf '\033Ptmux;\033\033]%d;rgb:%s\033\033\\\033\\' $argv; end;
-    function put_template_custom; printf '\033Ptmux;\033\033]%s%s\033\033\\\033\\' $argv; end;
-  else if string match 'screen*' $TERM # [ "${TERM%%[-.]*}" = "screen" ]
-    # GNU screen (screen, screen-256color, screen-256color-bce)
-    function put_template; printf '\033P\033]4;%d;rgb:%s\007\033\\' $argv; end;
-    function put_template_var; printf '\033P\033]%d;rgb:%s\007\033\\' $argv; end;
-    function put_template_custom; printf '\033P\033]%s%s\007\033\\' $argv; end;
-  else if string match 'linux*' $TERM # [ "${TERM%%-*}" = "linux" ]
-    function put_template; test $1 -lt 16 && printf "\e]P%x%s" $1 (echo $2 | sed 's/\///g'); end;
-    function put_template_var; true; end;
-    function put_template_custom; true; end;
-  else
-    function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
-    function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
-    function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
-  end
+  function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
+  function put_template_var; printf '\033]%d;rgb:%s\033\\' $argv; end;
+  function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
 
   # 16 color space
   put_template 0  $color00
@@ -123,6 +106,9 @@ function base16-woodland -d "Woodland"
   set -U fish_pager_color_description yellow --dim
   set -U fish_pager_color_prefix white --bold #--underline
   set -U fish_pager_color_progress brwhite --background=cyan
+  # FZF theme
+  # FZF theme
+  set -u FZF_DEFAULT_OPTS "--color=bg+:$color01,bg:$color00,spinner:$color12,hl:$color13 --color=fg:$color04,header:$color13,info:$color10,pointer:$color12 --color=marker:$color12,fg+:$color06,prompt:$color10,hl+:$color13"
 
   # remember current theme
   set -U base16_theme woodland
