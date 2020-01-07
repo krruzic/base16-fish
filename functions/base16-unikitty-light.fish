@@ -3,28 +3,28 @@
 # Unikitty Light scheme by Josh W Lewis (@joshwlewis)
 
 function base16-unikitty-light -d "Unikitty Light"
-  set color00 ff/ff/ff # Base 00 - Black
-  set color01 d8/13/7f # Base 08 - Red
-  set color02 17/ad/98 # Base 0B - Green
-  set color03 dc/8a/0e # Base 0A - Yellow
-  set color04 77/5d/ff # Base 0D - Blue
-  set color05 aa/17/e6 # Base 0E - Magenta
-  set color06 14/9b/da # Base 0C - Cyan
-  set color07 6c/69/6e # Base 05 - White
-  set color08 a7/a5/a8 # Base 03 - Bright Black
+  set color00 '#ffffff' # Base 00 - Black
+  set color01 '#d8137f' # Base 08 - Red
+  set color02 '#17ad98' # Base 0B - Green
+  set color03 '#dc8a0e' # Base 0A - Yellow
+  set color04 '#775dff' # Base 0D - Blue
+  set color05 '#aa17e6' # Base 0E - Magenta
+  set color06 '#149bda' # Base 0C - Cyan
+  set color07 '#6c696e' # Base 05 - White
+  set color08 '#a7a5a8' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 32/2d/34 # Base 07 - Bright White
-  set color16 d6/54/07 # Base 09
-  set color17 e0/13/d0 # Base 0F
-  set color18 e1/e1/e2 # Base 01
-  set color19 c4/c3/c5 # Base 02
-  set color20 89/87/8b # Base 04
-  set color21 4f/4b/51 # Base 06
+  set color15 '#322d34' # Base 07 - Bright White
+  set color16 '#d65407' # Base 09
+  set color17 '#e013d0' # Base 0F
+  set color18 '#e1e1e2' # Base 01
+  set color19 '#c4c3c5' # Base 02
+  set color20 '#89878b' # Base 04
+  set color21 '#4f4b51' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 

@@ -3,28 +3,28 @@
 # Atelier Savanna scheme by Bram de Haan (http://atelierbramdehaan.nl)
 
 function base16-atelier-savanna -d "Atelier Savanna"
-  set color00 17/1c/19 # Base 00 - Black
-  set color01 b1/61/39 # Base 08 - Red
-  set color02 48/99/63 # Base 0B - Green
-  set color03 a0/7e/3b # Base 0A - Yellow
-  set color04 47/8c/90 # Base 0D - Blue
-  set color05 55/85/9b # Base 0E - Magenta
-  set color06 1c/9a/a0 # Base 0C - Cyan
-  set color07 87/92/8a # Base 05 - White
-  set color08 5f/6d/64 # Base 03 - Bright Black
+  set color00 '#171c19' # Base 00 - Black
+  set color01 '#b16139' # Base 08 - Red
+  set color02 '#489963' # Base 0B - Green
+  set color03 '#a07e3b' # Base 0A - Yellow
+  set color04 '#478c90' # Base 0D - Blue
+  set color05 '#55859b' # Base 0E - Magenta
+  set color06 '#1c9aa0' # Base 0C - Cyan
+  set color07 '#87928a' # Base 05 - White
+  set color08 '#5f6d64' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 ec/f4/ee # Base 07 - Bright White
-  set color16 9f/71/3c # Base 09
-  set color17 86/74/69 # Base 0F
-  set color18 23/2a/25 # Base 01
-  set color19 52/60/57 # Base 02
-  set color20 78/87/7d # Base 04
-  set color21 df/e7/e2 # Base 06
+  set color15 '#ecf4ee' # Base 07 - Bright White
+  set color16 '#9f713c' # Base 09
+  set color17 '#867469' # Base 0F
+  set color18 '#232a25' # Base 01
+  set color19 '#526057' # Base 02
+  set color20 '#78877d' # Base 04
+  set color21 '#dfe7e2' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 

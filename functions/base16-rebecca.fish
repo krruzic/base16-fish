@@ -3,28 +3,28 @@
 # Rebecca scheme by Victor Borja (http://github.com/vic) based on Rebecca Theme (http://github.com/vic/rebecca-theme)
 
 function base16-rebecca -d "Rebecca"
-  set color00 29/2a/44 # Base 00 - Black
-  set color01 a0/a0/c5 # Base 08 - Red
-  set color02 6d/fe/df # Base 0B - Green
-  set color03 ae/81/ff # Base 0A - Yellow
-  set color04 2d/e0/a7 # Base 0D - Blue
-  set color05 7a/a5/ff # Base 0E - Magenta
-  set color06 8e/ae/e0 # Base 0C - Cyan
-  set color07 f1/ef/f8 # Base 05 - White
-  set color08 66/66/99 # Base 03 - Bright Black
+  set color00 '#292a44' # Base 00 - Black
+  set color01 '#a0a0c5' # Base 08 - Red
+  set color02 '#6dfedf' # Base 0B - Green
+  set color03 '#ae81ff' # Base 0A - Yellow
+  set color04 '#2de0a7' # Base 0D - Blue
+  set color05 '#7aa5ff' # Base 0E - Magenta
+  set color06 '#8eaee0' # Base 0C - Cyan
+  set color07 '#f1eff8' # Base 05 - White
+  set color08 '#666699' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 53/49/5d # Base 07 - Bright White
-  set color16 ef/e4/a1 # Base 09
-  set color17 ff/79/c6 # Base 0F
-  set color18 66/33/99 # Base 01
-  set color19 38/3a/62 # Base 02
-  set color20 a0/a0/c5 # Base 04
-  set color21 cc/cc/ff # Base 06
+  set color15 '#53495d' # Base 07 - Bright White
+  set color16 '#efe4a1' # Base 09
+  set color17 '#ff79c6' # Base 0F
+  set color18 '#663399' # Base 01
+  set color19 '#383a62' # Base 02
+  set color20 '#a0a0c5' # Base 04
+  set color21 '#ccccff' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 

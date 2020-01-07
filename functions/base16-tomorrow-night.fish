@@ -3,28 +3,28 @@
 # Tomorrow Night scheme by Chris Kempson (http://chriskempson.com)
 
 function base16-tomorrow-night -d "Tomorrow Night"
-  set color00 1d/1f/21 # Base 00 - Black
-  set color01 cc/66/66 # Base 08 - Red
-  set color02 b5/bd/68 # Base 0B - Green
-  set color03 f0/c6/74 # Base 0A - Yellow
-  set color04 81/a2/be # Base 0D - Blue
-  set color05 b2/94/bb # Base 0E - Magenta
-  set color06 8a/be/b7 # Base 0C - Cyan
-  set color07 c5/c8/c6 # Base 05 - White
-  set color08 96/98/96 # Base 03 - Bright Black
+  set color00 '#1d1f21' # Base 00 - Black
+  set color01 '#cc6666' # Base 08 - Red
+  set color02 '#b5bd68' # Base 0B - Green
+  set color03 '#f0c674' # Base 0A - Yellow
+  set color04 '#81a2be' # Base 0D - Blue
+  set color05 '#b294bb' # Base 0E - Magenta
+  set color06 '#8abeb7' # Base 0C - Cyan
+  set color07 '#c5c8c6' # Base 05 - White
+  set color08 '#969896' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 ff/ff/ff # Base 07 - Bright White
-  set color16 de/93/5f # Base 09
-  set color17 a3/68/5a # Base 0F
-  set color18 28/2a/2e # Base 01
-  set color19 37/3b/41 # Base 02
-  set color20 b4/b7/b4 # Base 04
-  set color21 e0/e0/e0 # Base 06
+  set color15 '#ffffff' # Base 07 - Bright White
+  set color16 '#de935f' # Base 09
+  set color17 '#a3685a' # Base 0F
+  set color18 '#282a2e' # Base 01
+  set color19 '#373b41' # Base 02
+  set color20 '#b4b7b4' # Base 04
+  set color21 '#e0e0e0' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 

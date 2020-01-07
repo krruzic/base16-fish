@@ -3,28 +3,28 @@
 # Atelier Estuary scheme by Bram de Haan (http://atelierbramdehaan.nl)
 
 function base16-atelier-estuary -d "Atelier Estuary"
-  set color00 22/22/1b # Base 00 - Black
-  set color01 ba/62/36 # Base 08 - Red
-  set color02 7d/97/26 # Base 0B - Green
-  set color03 a5/98/0d # Base 0A - Yellow
-  set color04 36/a1/66 # Base 0D - Blue
-  set color05 5f/91/82 # Base 0E - Magenta
-  set color06 5b/9d/48 # Base 0C - Cyan
-  set color07 92/91/81 # Base 05 - White
-  set color08 6c/6b/5a # Base 03 - Bright Black
+  set color00 '#22221b' # Base 00 - Black
+  set color01 '#ba6236' # Base 08 - Red
+  set color02 '#7d9726' # Base 0B - Green
+  set color03 '#a5980d' # Base 0A - Yellow
+  set color04 '#36a166' # Base 0D - Blue
+  set color05 '#5f9182' # Base 0E - Magenta
+  set color06 '#5b9d48' # Base 0C - Cyan
+  set color07 '#929181' # Base 05 - White
+  set color08 '#6c6b5a' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 f4/f3/ec # Base 07 - Bright White
-  set color16 ae/73/13 # Base 09
-  set color17 9d/6c/7c # Base 0F
-  set color18 30/2f/27 # Base 01
-  set color19 5f/5e/4e # Base 02
-  set color20 87/85/73 # Base 04
-  set color21 e7/e6/df # Base 06
+  set color15 '#f4f3ec' # Base 07 - Bright White
+  set color16 '#ae7313' # Base 09
+  set color17 '#9d6c7c' # Base 0F
+  set color18 '#302f27' # Base 01
+  set color19 '#5f5e4e' # Base 02
+  set color20 '#878573' # Base 04
+  set color21 '#e7e6df' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 

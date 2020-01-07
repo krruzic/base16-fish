@@ -3,28 +3,28 @@
 # Twilight scheme by David Hart (https://github.com/hartbit)
 
 function base16-twilight -d "Twilight"
-  set color00 1e/1e/1e # Base 00 - Black
-  set color01 cf/6a/4c # Base 08 - Red
-  set color02 8f/9d/6a # Base 0B - Green
-  set color03 f9/ee/98 # Base 0A - Yellow
-  set color04 75/87/a6 # Base 0D - Blue
-  set color05 9b/85/9d # Base 0E - Magenta
-  set color06 af/c4/db # Base 0C - Cyan
-  set color07 a7/a7/a7 # Base 05 - White
-  set color08 5f/5a/60 # Base 03 - Bright Black
+  set color00 '#1e1e1e' # Base 00 - Black
+  set color01 '#cf6a4c' # Base 08 - Red
+  set color02 '#8f9d6a' # Base 0B - Green
+  set color03 '#f9ee98' # Base 0A - Yellow
+  set color04 '#7587a6' # Base 0D - Blue
+  set color05 '#9b859d' # Base 0E - Magenta
+  set color06 '#afc4db' # Base 0C - Cyan
+  set color07 '#a7a7a7' # Base 05 - White
+  set color08 '#5f5a60' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 ff/ff/ff # Base 07 - Bright White
-  set color16 cd/a8/69 # Base 09
-  set color17 9b/70/3f # Base 0F
-  set color18 32/35/37 # Base 01
-  set color19 46/4b/50 # Base 02
-  set color20 83/81/84 # Base 04
-  set color21 c3/c3/c3 # Base 06
+  set color15 '#ffffff' # Base 07 - Bright White
+  set color16 '#cda869' # Base 09
+  set color17 '#9b703f' # Base 0F
+  set color18 '#323537' # Base 01
+  set color19 '#464b50' # Base 02
+  set color20 '#838184' # Base 04
+  set color21 '#c3c3c3' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 

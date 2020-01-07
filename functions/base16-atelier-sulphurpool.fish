@@ -3,28 +3,28 @@
 # Atelier Sulphurpool scheme by Bram de Haan (http://atelierbramdehaan.nl)
 
 function base16-atelier-sulphurpool -d "Atelier Sulphurpool"
-  set color00 20/27/46 # Base 00 - Black
-  set color01 c9/49/22 # Base 08 - Red
-  set color02 ac/97/39 # Base 0B - Green
-  set color03 c0/8b/30 # Base 0A - Yellow
-  set color04 3d/8f/d1 # Base 0D - Blue
-  set color05 66/79/cc # Base 0E - Magenta
-  set color06 22/a2/c9 # Base 0C - Cyan
-  set color07 97/9d/b4 # Base 05 - White
-  set color08 6b/73/94 # Base 03 - Bright Black
+  set color00 '#202746' # Base 00 - Black
+  set color01 '#c94922' # Base 08 - Red
+  set color02 '#ac9739' # Base 0B - Green
+  set color03 '#c08b30' # Base 0A - Yellow
+  set color04 '#3d8fd1' # Base 0D - Blue
+  set color05 '#6679cc' # Base 0E - Magenta
+  set color06 '#22a2c9' # Base 0C - Cyan
+  set color07 '#979db4' # Base 05 - White
+  set color08 '#6b7394' # Base 03 - Bright Black
   set color09 $color01 # Base 08 - Bright Red
   set color10 $color02 # Base 0B - Bright Green
   set color11 $color03 # Base 0A - Bright Yellow
   set color12 $color04 # Base 0D - Bright Blue
   set color13 $color05 # Base 0E - Bright Magenta
   set color14 $color06 # Base 0C - Bright Cyan
-  set color15 f5/f7/ff # Base 07 - Bright White
-  set color16 c7/6b/29 # Base 09
-  set color17 9c/63/7a # Base 0F
-  set color18 29/32/56 # Base 01
-  set color19 5e/66/87 # Base 02
-  set color20 89/8e/a4 # Base 04
-  set color21 df/e2/f1 # Base 06
+  set color15 '#f5f7ff' # Base 07 - Bright White
+  set color16 '#c76b29' # Base 09
+  set color17 '#9c637a' # Base 0F
+  set color18 '#293256' # Base 01
+  set color19 '#5e6687' # Base 02
+  set color20 '#898ea4' # Base 04
+  set color21 '#dfe2f1' # Base 06
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
 
