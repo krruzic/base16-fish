@@ -28,7 +28,7 @@ function base16-harmonic-light -d "Harmonic16 Light"
   set colorfg $color07 # Base 05 - White
   set colorbg $color00 # Base 00 - Black
   function hex_to_rgb;
-    echo $argv[1] | sed -rE 's/\'\#([0-9A-H]{2})([0-9A-H]{2})([0-9A-H]{2})\'/\1\/\2\/\3/gI'
+    echo $argv[1] | sed -rE 's/\#([0-9A-H]{2})([0-9A-H]{2})([0-9A-H]{2})/\1\/\2\/\3/gI'
   end;
 
   function put_template; printf '\033]4;%d;rgb:%s\033\\' $argv; end;
