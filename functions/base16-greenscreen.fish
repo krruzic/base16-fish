@@ -36,30 +36,30 @@ function base16-greenscreen -d "Green Screen"
   function put_template_custom; printf '\033]%s%s\033\\' $argv; end;
 
   # 16 color space
-  put_template 0  hex_to_rgb $color00
-  put_template 1  hex_to_rgb $color01
-  put_template 2  hex_to_rgb $color02
-  put_template 3  hex_to_rgb $color03
-  put_template 4  hex_to_rgb $color04
-  put_template 5  hex_to_rgb $color05
-  put_template 6  hex_to_rgb $color06
-  put_template 7  hex_to_rgb $color07
-  put_template 8  hex_to_rgb $color08
-  put_template 9  hex_to_rgb $color09
-  put_template 10 hex_to_rgb $color10
-  put_template 11 hex_to_rgb $color11
-  put_template 12 hex_to_rgb $color12
-  put_template 13 hex_to_rgb $color13
-  put_template 14 hex_to_rgb $color14
-  put_template 15 hex_to_rgb $color15
+  put_template 0  (hex_to_rgb $color00)
+  put_template 1  (hex_to_rgb $color01)
+  put_template 2  (hex_to_rgb $color02)
+  put_template 3  (hex_to_rgb $color03)
+  put_template 4  (hex_to_rgb $color04)
+  put_template 5  (hex_to_rgb $color05)
+  put_template 6  (hex_to_rgb $color06)
+  put_template 7  (hex_to_rgb $color07)
+  put_template 8  (hex_to_rgb $color08)
+  put_template 9  (hex_to_rgb $color09)
+  put_template 10 (hex_to_rgb $color10)
+  put_template 11 (hex_to_rgb $color11)
+  put_template 12 (hex_to_rgb $color12)
+  put_template 13 (hex_to_rgb $color13)
+  put_template 14 (hex_to_rgb $color14)
+  put_template 15 (hex_to_rgb $color15)
 
   # 256 color space
-  put_template 16 hex_to_rgb $color16
-  put_template 17 hex_to_rgb $color17
-  put_template 18 hex_to_rgb $color18
-  put_template 19 hex_to_rgb $color19
-  put_template 20 hex_to_rgb $color20
-  put_template 21 hex_to_rgb $color21
+  put_template 16 (hex_to_rgb $color16)
+  put_template 17 (hex_to_rgb $color17)
+  put_template 18 (hex_to_rgb $color18)
+  put_template 19 (hex_to_rgb $color19)
+  put_template 20 (hex_to_rgb $color20)
+  put_template 21 (hex_to_rgb $color21)
 
   # foreground / background / cursor color
   if test -n "$ITERM_SESSION_ID"
