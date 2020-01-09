@@ -104,5 +104,8 @@ function set_colors
 end
 
 function set_fzf
-  set -u FZF_DEFAULT_OPTS "--color=bg+:$color01,bg:$color00,spinner:$color12,hl:$color13 --color=fg:$color04,header:$color13,info:$color10,pointer:$color12 --color=marker:$color12,fg+:$color06,prompt:$color10,hl+:$color13"
+  set -u FZF_DEFAULT_OPTS "\
+  --color=bg+:$color08,bg:$color00,spinner:$color12,hl:$color13\
+  --color=fg:$color07,header:$color13,info:$color10,pointer:$color12\
+  --color=marker:$color12,fg+:$color00,prompt:$color10,hl+:$color13"
 end
