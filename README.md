@@ -18,7 +18,7 @@ FZF detection is automatic, as long as fzf is on your path the theme will be
 set. Don't have FZF? Get it [here](https://github.com/junegunn/fzf#installation)
 
 ## Screenshot
-![Screenshot](https://giant.gfycat.com/RelievedComposedHoki.gif)
+![Screenshot](https://giant.gfycat.com/BadSlowIndigowingedparrot.gif)
 
 ## FAQ
 1. Why not just use [base16-shell](https://github.com/chriskempson/base16-shell)?
