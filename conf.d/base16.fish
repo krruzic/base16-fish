@@ -111,6 +111,8 @@ function __base16_set_fzf
   --color=marker:$color12,fg+:$color00,prompt:$color10,hl+:$color13"
 end
 
-if test -n "$base16_theme"
-  base16-$base16_theme
+if [ "$TERM" != "dumb" ]
+  if test -n "$base16_theme"
+    base16-$base16_theme
+  end
 end
